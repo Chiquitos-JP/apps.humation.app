@@ -43,29 +43,29 @@
   },
   "i18n": {
     "ja": {
-      "tagline": "登録不要で旅程・持ち物リスト・予約メモ・費用を整理",
-      "description": "simrip は、登録不要で国内外の旅程をまとめられる iPhone と iPad 向けの旅行計画アプリです。現地の日付、タイムゾーン、持ち物リスト、予約メモ、費用を、旅ごとにひとまとめにできます。\n\nHumation アバターは「Edit together」に表示され、オーナーとその他の参加者を識別します。",
-      "usage": "Edit together の参加者アバター",
+      "tagline": "登録なしで旅程・持ち物・予約・費用をひとまとめに",
+      "description": "simrip は、会員登録なしで使える iPhone・iPad 向けの旅行計画アプリです。国内・海外を問わず、現地の日付とタイムゾーン、持ち物リスト、予約のメモ、費用を旅ごとにまとめて管理できます。\n\nHumation アバターは「Edit together」で使われていて、旅のオーナーとほかの参加者を見分けるのに役立ちます。",
+      "usage": "Edit together に表示される参加者のアバター",
       "screenshots": [
         {
           "file": "screenshots/01-home.webp",
-          "alt": "サンプル旅程と旅の作成アクションがある simrip のホーム画面"
+          "alt": "サンプルの旅程と、旅を作成するボタンが並ぶ simrip のホーム画面"
         },
         {
           "file": "screenshots/02-itinerary.webp",
-          "alt": "日付と時刻で並んだサンプル旅程"
+          "alt": "日付と時刻ごとに並んだサンプルの旅程"
         },
         {
           "file": "screenshots/03-packing.webp",
-          "alt": "カテゴリ、完了した項目、並び替え操作がある持ち物チェックリスト"
+          "alt": "カテゴリ分けと完了チェック、並べ替えができる持ち物リスト"
         },
         {
           "file": "screenshots/04-expenses.webp",
-          "alt": "サンプル合計と旅程の費用 1 件を示す旅の費用画面"
+          "alt": "サンプルの合計と、旅程に紐づく費用 1 件を表示した費用画面"
         },
         {
           "file": "screenshots/05-collaboration.webp",
-          "alt": "Humation アバターと参加者の役割がある共同編集画面"
+          "alt": "Humation アバターと参加者の役割が並ぶ共同編集の画面"
         }
       ]
     }
