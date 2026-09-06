@@ -24,5 +24,18 @@
     "playStore": "https://play.google.com/store/apps/details?id=com.tsuzukit.monivo",
     "x": "https://x.com/tsuzuki817"
   },
+  "i18n": {
+    "ja": {
+      "tagline": "友だち・パートナー・見知らぬ人の 15 秒ボイスで起きる",
+      "description": "Monivo はボイスアラームとリマインダーのアプリです。最大 15 秒の音声を録音して友だちやパートナーに送ると、その声がアラーム音になります。AlarmKit を使っているので、アプリを閉じていても、サイレントでも、設定した時刻ちょうどに鳴ります。\n\nまだ友だちがいない場合は、Global Voices が世界中の人の録音を時間帯とタグでマッチして届け、毎朝違う見知らぬ人が起こしてくれます。ほしい声の種類を頼んだり、スタンプで反応したり、気に入った声を保存して任意のアラームにピン留めできます。\n\nMonivo の全員が、humation-swift で作られた手描きの Humation アバターを持っています。オンボーディングでデザインし、いつでも描き直せます。ホーム画面に届くすべての音声の横、誰の声で起きるか一目でわかるアラームの行、Global Voices の各投稿者の横、フレンドリスト、プロフィールページに表示されます。Android 版も同じシードのルールに従うので、同じ人はどちらの端末でも同じ見た目になります。",
+      "usage": "ホーム画面の音声カード、アラームの行、Global Voices の投稿、フレンドリスト、プロフィールページ",
+      "screenshots": [
+        { "file": "screenshots/01-alarm.png", "alt": "友だちの手描きアバターが、再生する声の持ち主を示すアラーム編集画面" },
+        { "file": "screenshots/02-global.png", "alt": "投稿者の横に手描きアバターがある Global Voices のフィード" },
+        { "file": "screenshots/03-avatar.png", "alt": "ライブプレビューの上に髪・服・アイテムのタブがあるアバタークリエイター" },
+        { "file": "screenshots/04-profile.png", "alt": "大きな手描きアバター、自己紹介、タグ、リンクがある友だちのプロフィールページ" }
+      ]
+    }
+  },
   "addedAt": "2026-09-03"
 }

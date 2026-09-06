@@ -44,5 +44,30 @@
   "links": {
     "repo": "https://github.com/humation-labs/humation"
   },
+  "i18n": {
+    "ja": {
+      "tagline": "手描きアバターを自分でデザイン",
+      "description": "Humation は手描きアバターのクリエイターです。髪型・服・アイテムと色を選ぶか、シードからランダムに生成し、プロフィール画像用に SVG や PNG でダウンロードできます。\n\nアバターはすべて Humation 1 のアセットセットからローカルで描画されるため、どこで使っても同じ見た目になります。",
+      "usage": "クリエイターのキャンバスと、すべてのパーツのプレビュー",
+      "screenshots": [
+        {
+          "file": "screenshots/01.png",
+          "alt": "ライブプレビューと Head タブのパーツ選びがあるアバタークリエイター"
+        },
+        {
+          "file": "screenshots/02.png",
+          "alt": "Body タブで服を選んでいる画面"
+        },
+        {
+          "file": "screenshots/03.png",
+          "alt": "Item タブでアイテムや猫の相棒を追加している画面"
+        },
+        {
+          "file": "screenshots/04.png",
+          "alt": "線、髪、肌、服、背景を選ぶ Colors シート"
+        }
+      ]
+    }
+  },
   "addedAt": "2026-09-02"
 }

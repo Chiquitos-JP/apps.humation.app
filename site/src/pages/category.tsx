@@ -3,7 +3,7 @@ import { notFound } from '@tanstack/react-router'
 import { AppRowGrid } from '../components/AppRowGrid'
 import { CategoryIcon } from '../components/CategoryIcon'
 import { LocaleLink } from '../components/LocaleLink'
-import { byCategory } from '../data/listings'
+import { byCategory, localizeAll } from '../data/listings'
 import type { Listing } from '../data/listings'
 import { categoryLabel, getDict, localePath, useLocale, useT, type Locale } from '../i18n'
 import { isCategory } from '../lib/constants'
@@ -19,7 +19,7 @@ export function categoryRoute(locale: Locale) {
   return {
     loader: ({ params }: { params: { category: string } }): CategoryData => {
       if (!isCategory(params.category)) throw notFound()
-      const apps = byCategory(params.category)
+      const apps = localizeAll(byCategory(params.category), locale)
       return { category: params.category, apps }
     },
     head: ({ loaderData, params }: { loaderData?: CategoryData; params: { category: string } }) => {

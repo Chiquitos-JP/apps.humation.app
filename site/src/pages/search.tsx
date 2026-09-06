@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import { IconSearch } from '@tabler/icons-react'
 import { useNavigate } from '@tanstack/react-router'
 import { AppRow } from '../components/AppRow'
-import { allListings } from '../data/listings'
+import { allListings, localize } from '../data/listings'
 import type { Listing } from '../data/listings'
-import { categoryLabel, en, getDict, ja, localePath, useT, type Locale } from '../i18n'
+import { categoryLabel, en, getDict, ja, localePath, useLocale, useT, type Locale } from '../i18n'
 import { pageHead } from '../lib/head'
 import { usePageData, usePageSearch } from './usePageData'
 
@@ -32,6 +32,7 @@ function SearchPage() {
   const apps = usePageData<Listing[]>()
   const { q } = usePageSearch<{ q?: string }>()
   const navigate = useNavigate()
+  const locale = useLocale()
   const t = useT()
   const query = q ?? ''
   const trimmed = query.trim()
@@ -43,6 +44,7 @@ function SearchPage() {
       const haystack = [
         app.name,
         app.tagline,
+        app.i18n?.ja?.tagline,
         app.developer.name,
         categoryLabel(app.category, en),
         categoryLabel(app.category, ja),
@@ -84,7 +86,7 @@ function SearchPage() {
       ) : (
         <div className="mt-4 min-w-0">
           {filtered.map((app) => (
-            <AppRow key={app.slug} app={app} />
+            <AppRow key={app.slug} app={localize(app, locale)} />
           ))}
         </div>
       )}

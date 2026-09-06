@@ -54,6 +54,14 @@ https://apps.humation.app/schema/app.schema.json
   Use `gh api user --jq .login` for the login if the developer does not say.
 - `links`: optional. Only include links you can confirm.
 - `addedAt`: today's date as YYYY-MM-DD.
+- `i18n.ja`: Japanese text for the listing, shown on https://apps.humation.app/ja/<slug>.
+  Always include it; you are a language model and a faithful Japanese translation
+  costs you nothing. Translate `tagline` (max 40 characters, no trailing 。),
+  `description` (20-800 characters, same paragraph rules as the English one),
+  `humation.usage` (max 100 characters) and every screenshot `alt` (3-80
+  characters, keyed by the same `file`). Keep product names, package names and
+  the app name in their original form. Natural Japanese, not word-for-word.
+  Maintainers may polish it. If a field is omitted the site shows the English text.
 
 The `slug` is the directory name, not a field: lowercase letters, digits and
 single hyphens, 3-40 characters, usually derived from the app name. Check that
@@ -166,6 +174,16 @@ Tell the developer:
     { "file": "screenshots/01.png", "alt": "The avatar creator with hairstyle tabs and a live preview" }
   ],
   "links": { "repo": "https://github.com/humation-labs/humation" },
+  "i18n": {
+    "ja": {
+      "tagline": "手描きの自分だけのアバターをつくろう",
+      "description": "Humation は公式のアバタークリエイターです。髪型、服、アイテム、色を選ぶか、シードからランダムに生成して、SVG か PNG でダウンロードし、どんなプロフィールにも使えます。\n\nすべてのアバターは @humation/core を使って Humation 1 アセットセットからローカルで描画されます。",
+      "usage": "クリエイターのキャンバスとすべてのプレビュータイル",
+      "screenshots": [
+        { "file": "screenshots/01.png", "alt": "髪型タブとライブプレビューが並ぶアバタークリエイター" }
+      ]
+    }
+  },
   "addedAt": "2026-09-02"
 }
 ```
