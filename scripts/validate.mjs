@@ -356,24 +356,57 @@ function checkDuplicateName(slug, data, names, err) {
   }
 }
 
+function checkI18n(data, err, note) {
+  const ja = data?.i18n?.ja;
+  if (ja == null || (typeof ja === 'object' && Object.keys(ja).length === 0)) {
+    note('no Japanese text (i18n.ja); the site shows the English text on /ja');
+    return;
+  }
+
+  if (!Array.isArray(ja.screenshots)) return;
+
+  const knownFiles = new Set();
+  if (Array.isArray(data.screenshots)) {
+    for (const shot of data.screenshots) {
+      if (shot && typeof shot.file === 'string') knownFiles.add(shot.file);
+    }
+  }
+
+  const seen = new Set();
+  for (const shot of ja.screenshots) {
+    if (!shot || typeof shot.file !== 'string') continue;
+    const file = shot.file;
+    if (!knownFiles.has(file)) {
+      err(`i18n.ja.screenshots references unknown file ${file}`);
+    }
+    if (seen.has(file)) {
+      err(`i18n.ja.screenshots has duplicate file ${file}`);
+    }
+    seen.add(file);
+  }
+}
+
 async function validateListing(slug, { offline, names }) {
   const errors = [];
+  const notes = [];
   const err = (message) => errors.push(`apps/${slug}: ${message}`);
+  const note = (message) => notes.push(`apps/${slug}: note: ${message}`);
   checkSlug(slug, err);
 
   const dir = join(APPS_DIR, slug);
   if (!existsSync(dir)) {
     err('directory does not exist');
-    return errors;
+    return { errors, notes };
   }
 
   const data = checkSchema(dir, err);
   checkDirectory(dir, data, err);
   checkIcon(dir, err);
   checkScreenshots(dir, data, err);
+  checkI18n(data, err, note);
   await checkUrl(data, offline, err);
   checkDuplicateName(slug, data, names, err);
-  return errors;
+  return { errors, notes };
 }
 
 async function main() {
@@ -384,7 +417,8 @@ async function main() {
 
   let errorCount = 0;
   for (const slug of slugs) {
-    const errors = await validateListing(slug, { offline, names });
+    const { errors, notes } = await validateListing(slug, { offline, names });
+    for (const line of notes) console.log(line);
     if (errors.length === 0) {
       console.log(`ok apps/${slug}`);
     } else {

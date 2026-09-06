@@ -20,7 +20,10 @@ forks this repository, runs the validator and opens the pull request.
 1. Fork this repository and clone your fork.
 2. Create `apps/<slug>/` where `<slug>` is lowercase letters, digits and single hyphens.
 3. Write `apps/<slug>/app.json` following [`schema/app.schema.json`](schema/app.schema.json).
-   The example in [`llms.txt`](llms.txt) is a good starting point.
+   The example in [`llms.txt`](llms.txt) is a good starting point. Optionally add an
+   `i18n.ja` block with Japanese text (tagline, description, usage, screenshot alt);
+   listings without it show their English text on the Japanese site, and maintainers
+   may add or polish the Japanese later.
 4. Add `icon.png` (PNG, 512x512, at most 512 KB) and one to five screenshots under
    `screenshots/` (PNG, JPEG or WebP, at most 2 MB each). Screenshots share one orientation
    and a fixed aspect ratio: portrait 9:19.5 (a modern iPhone screen, e.g. 1320x2868) or
