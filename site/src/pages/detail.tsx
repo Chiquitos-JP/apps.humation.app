@@ -15,7 +15,7 @@ import { LocaleLink } from '../components/LocaleLink'
 import { ScreenshotGallery } from '../components/ScreenshotGallery'
 import { Section } from '../components/Section'
 import { ShimmerImage } from '../components/ShimmerImage'
-import { byCategory, bySlug } from '../data/listings'
+import { byCategory, bySlug, localize, localizeAll } from '../data/listings'
 import type { Listing } from '../data/listings'
 import {
   categoryLabel,
@@ -53,8 +53,9 @@ type DetailData = {
 export function detailRoute(locale: Locale) {
   return {
     loader: ({ params }: { params: { slug: string } }): DetailData => {
-      const listing = bySlug(params.slug)
-      if (!listing) throw notFound()
+      const raw = bySlug(params.slug)
+      if (!raw) throw notFound()
+      const { i18n: _i18n, ...listing } = localize(raw, locale)
       const screenshots = listing.screenshots.map((shot) => ({
         ...shot,
         src: screenshotSrc(listing.slug, shot.file),
@@ -102,9 +103,12 @@ function AppDetail() {
   const locale = useLocale()
   const t = useT()
   const developerUrl = developerHref(listing.developer)
-  const moreInCategory = byCategory(listing.category)
-    .filter((app) => app.slug !== listing.slug)
-    .slice(0, 9)
+  const moreInCategory = localizeAll(
+    byCategory(listing.category)
+      .filter((app) => app.slug !== listing.slug)
+      .slice(0, 9),
+    locale,
+  )
   const presentLinks = LINK_DEFS.filter((def) => listing.links?.[def.key])
   const category = categoryLabel(listing.category, t)
 
@@ -235,9 +239,11 @@ function InfoRow({ label, children }: { label: string; children: ReactNode }) {
 
 function Description({ text }: { text: string }) {
   const t = useT()
+  const locale = useLocale()
   const paragraphs = descriptionParagraphs(text)
   const [expanded, setExpanded] = useState(false)
-  const isLong = text.length > 400
+  const limit = locale === 'ja' ? 220 : 400
+  const isLong = text.length > limit
   const clamp = isLong && !expanded
 
   return (

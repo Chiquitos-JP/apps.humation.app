@@ -1,4 +1,5 @@
 import featuredSlugsJson from './featured.json'
+import type { Locale } from '../i18n'
 import type { Category, Platform } from '../lib/constants'
 
 const featuredSlugs: string[] = featuredSlugsJson
@@ -16,6 +17,13 @@ export type HumationPackage =
   | 'humation-swift'
 
 export type Pricing = 'free' | 'freemium' | 'paid'
+
+export type ListingI18n = {
+  tagline?: string
+  description?: string
+  usage?: string
+  screenshots?: { file: string; alt: string }[]
+}
 
 export type Listing = {
   slug: string
@@ -46,6 +54,7 @@ export type Listing = {
     discord?: string
   }
   addedAt: string
+  i18n?: { ja?: ListingI18n }
 }
 
 type AppJson = Omit<Listing, 'slug'>
@@ -62,6 +71,37 @@ const listings: Listing[] = Object.entries(files).map(([path, data]) => ({
   slug: slugFromPath(path),
   ...data,
 }))
+
+export function localize(listing: Listing, locale: Locale): Listing {
+  if (locale !== 'ja') return listing
+  const ja = listing.i18n?.ja
+  if (!ja) return listing
+
+  const next: Listing = { ...listing }
+  if (ja.tagline) next.tagline = ja.tagline
+  if (ja.description) next.description = ja.description
+  if (ja.usage) next.humation = { ...listing.humation, usage: ja.usage }
+  if (ja.screenshots?.length) {
+    const altByFile = new Map(
+      ja.screenshots.filter((shot) => shot.file && shot.alt).map((shot) => [shot.file, shot.alt]),
+    )
+    next.screenshots = listing.screenshots.map((shot) => {
+      const alt = altByFile.get(shot.file)
+      return alt ? { ...shot, alt } : shot
+    })
+  }
+  return next
+}
+
+function withoutI18n(listing: Listing): Listing {
+  if (listing.i18n === undefined) return listing
+  const { i18n: _i18n, ...rest } = listing
+  return rest
+}
+
+export function localizeAll(listings: Listing[], locale: Locale): Listing[] {
+  return listings.map((listing) => withoutI18n(localize(listing, locale)))
+}
 
 export function allListings(): Listing[] {
   return [...listings].sort((a, b) => a.name.localeCompare(b.name))

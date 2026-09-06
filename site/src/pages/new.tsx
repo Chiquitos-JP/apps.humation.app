@@ -1,7 +1,7 @@
 import { IconChevronRight, IconSparkles } from '@tabler/icons-react'
 import { AppRowGrid } from '../components/AppRowGrid'
 import { LocaleLink } from '../components/LocaleLink'
-import { newest } from '../data/listings'
+import { localizeAll, newest } from '../data/listings'
 import type { Listing } from '../data/listings'
 import { getDict, localePath, useLocale, useT, type Locale } from '../i18n'
 import { pageHead } from '../lib/head'
@@ -11,7 +11,7 @@ type NewData = { apps: Listing[] }
 
 export function newRoute(locale: Locale) {
   return {
-    loader: (): NewData => ({ apps: newest() }),
+    loader: (): NewData => ({ apps: localizeAll(newest(), locale) }),
     head: ({ loaderData }: { loaderData?: NewData }) => {
       const t = getDict(locale)
       const count = loaderData?.apps.length ?? 0

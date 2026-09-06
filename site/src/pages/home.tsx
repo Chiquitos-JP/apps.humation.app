@@ -8,7 +8,7 @@ import { Section } from '../components/Section'
 import { ClaudeLogo } from '../components/brand/ClaudeLogo'
 import { GrokLogo } from '../components/brand/GrokLogo'
 import { OpenAILogo } from '../components/brand/OpenAILogo'
-import { byCategory, categoryCounts, featured, newest } from '../data/listings'
+import { byCategory, categoryCounts, featured, localizeAll, newest } from '../data/listings'
 import type { Listing } from '../data/listings'
 import { categoryLabel, getDict, localePath, useLocale, useT, type Locale } from '../i18n'
 import { ADD_APP_PROMPT, CONTRIBUTING_URL } from '../lib/constants'
@@ -24,12 +24,12 @@ type HomeData = {
 export function homeRoute(locale: Locale) {
   return {
     loader: (): HomeData => ({
-      featured: featured(),
-      newest: newest(18),
+      featured: localizeAll(featured(), locale),
+      newest: localizeAll(newest(18), locale),
       categories: categoryCounts().map(({ category, count }) => ({
         category,
         count,
-        apps: byCategory(category).slice(0, 9),
+        apps: localizeAll(byCategory(category).slice(0, 9), locale),
       })),
     }),
     head: () => {
