@@ -2,14 +2,14 @@
   "$schema": "https://apps.humation.app/schema/app.schema.json",
   "name": "UniDrop",
   "tagline": "AI tools and campus connections for University of Tsukuba students",
-  "description": "UniDrop helps University of Tsukuba students navigate campus life with AI assistance, course and graduation planning, a student marketplace, and optional weekly introductions.\n\nFor students without a profile photo, Humation provides hand-drawn avatars from a few handpicked seeds, with distinct styles for men and women.",
+  "description": "UniDrop helps University of Tsukuba students navigate campus life with AI assistance, course and graduation planning, a student marketplace, and optional weekly introductions.\n\nFor students without a profile photo, UniDrop generates hand-drawn SVG avatars in the browser at runtime using @humation/core and @humation/assets-humation-1. A stable seed, such as the user ID, determines the avatar's parts and colors within gender-based style pools, including a neutral pool. These default avatars appear across drop, chat and profile screens. The packages are loaded on demand and generated avatars are cached.",
   "url": "https://unidropjp.com",
   "category": "social",
   "platforms": ["web"],
   "pricing": "free",
   "humation": {
     "packages": ["@humation/core", "@humation/assets-humation-1"],
-    "usage": "Default profile avatars from handpicked seeds, with distinct styles for men and women"
+    "usage": "Default avatars generated in the browser at runtime from stable user seeds and gender-based style pools, displayed across drop, chat and profile screens"
   },
   "developer": { "name": "Youest, Inc.", "github": "Yuboku111" },
   "icon": "icon.png",
