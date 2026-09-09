@@ -1,0 +1,78 @@
+{
+  "$schema": "https://apps.humation.app/schema/app.schema.json",
+  "name": "oyado",
+  "tagline": "A travel library for stays",
+  "description": "oyado is a \"library of stays\" — collect the hotels and ryokan that catch your eye, and keep your next trip and travel memories in one place.\n\nOfficial sites, booking sites, social media, articles — encounters with great stays are scattered everywhere. With oyado, save from the Safari share sheet, by pasting a URL, or by searching a name. Wherever you found it, you'll find it again.\n\nFor booking, you'll be taken to the stay's official site or a booking site.\nYour next trip starts by saving the one that caught your eye.\n\nHumation avatars are the profile icons: each user composes their own character from the Humation 1 parts and colors in the in-app editor, rendered on device from the bundled asset set.",
+  "url": "https://apps.apple.com/jp/app/oyado/id6760962887",
+  "category": "lifestyle",
+  "platforms": [
+    "ios"
+  ],
+  "pricing": "free",
+  "humation": {
+    "packages": [
+      "@humation/assets-humation-1"
+    ],
+    "usage": "Profile icons: users build their own character from Humation 1 parts and colors in the in-app editor"
+  },
+  "developer": {
+    "name": "Masaru Ogata",
+    "github": "Chiquitos-JP"
+  },
+  "icon": "icon.png",
+  "screenshots": [
+    {
+      "file": "screenshots/01.png",
+      "alt": "Save the stays that catch your eye"
+    },
+    {
+      "file": "screenshots/02.png",
+      "alt": "A library of your favorite stays, side by side"
+    },
+    {
+      "file": "screenshots/03.png",
+      "alt": "Share your favorites as a collection"
+    },
+    {
+      "file": "screenshots/04.png",
+      "alt": "Pick the next stay together with a poll"
+    },
+    {
+      "file": "screenshots/05.png",
+      "alt": "That stay, in photos and words"
+    }
+  ],
+  "links": {
+    "appStore": "https://apps.apple.com/jp/app/oyado/id6760962887"
+  },
+  "i18n": {
+    "ja": {
+      "tagline": "気になる宿を集める旅のライブラリ",
+      "description": "oyadoは、気になるホテル・旅館を集めて、次の旅と旅の思い出をひとつに残す「宿のライブラリ」です。\n\n公式サイト、予約サイト、SNS、記事。宿との出会いはあちこちに散らばります。oyadoなら、Safariの共有、URLの貼り付け、宿名検索から保存。どこで見つけても、あとで迷わず見返せます。\n\n予約するときは、宿の公式サイトや予約サイトへ移動します。\n気になる一軒を保存するところから、次の旅が始まります。\n\nHumation のアバターはプロフィールのアイコンです。アプリ内のエディタで Humation 1 のパーツと色から自分のキャラクターを組み立て、同梱のアセットから端末内で描画します。",
+      "usage": "プロフィールのアイコン。アプリ内のエディタで Humation 1 のパーツと色から自分のキャラクターを組み立てる",
+      "screenshots": [
+        {
+          "file": "screenshots/01.png",
+          "alt": "気になる宿を、保存しよう。"
+        },
+        {
+          "file": "screenshots/02.png",
+          "alt": "好きな宿が並ぶ、自分だけのライブラリ。"
+        },
+        {
+          "file": "screenshots/03.png",
+          "alt": "お気に入りを、コレクションで共有しよう。"
+        },
+        {
+          "file": "screenshots/04.png",
+          "alt": "次に泊まる宿、みんなで選ぼう。"
+        },
+        {
+          "file": "screenshots/05.png",
+          "alt": "あの滞在を、写真とことばで。"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-09-09"
+}
