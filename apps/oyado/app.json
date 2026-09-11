@@ -23,7 +23,7 @@
     },
     {
       "file": "screenshots/02.webp",
-      "alt": "The booking sheet for that stay: the official site first, then Rakuten, Jalan, Ikyu, Yahoo, Booking.com, Expedia and Agoda"
+      "alt": "The booking sheet for a stay: the official site first, then Rakuten, Jalan, Ikyu, Yahoo, Booking.com, Expedia and Agoda"
     },
     {
       "file": "screenshots/03.webp",
@@ -53,7 +53,7 @@
         },
         {
           "file": "screenshots/02.webp",
-          "alt": "その宿の予約シート。公式サイトが先頭で、楽天・じゃらん・一休・Yahoo・Booking・Expedia・Agoda が続く"
+          "alt": "宿の予約シート。公式サイトが先頭で、楽天・じゃらん・一休・Yahoo・Booking・Expedia・Agoda が続く"
         },
         {
           "file": "screenshots/03.webp",
